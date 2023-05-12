@@ -12,4 +12,6 @@ AppDataSource.initialize().then(() => {
 
   console.log("I am here")
   return app.listen(process.env.PORT)
+}).catch((error) => {
+  console.log(error)
 })
