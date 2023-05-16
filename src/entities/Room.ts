@@ -5,6 +5,8 @@ import {
 	OneToMany,
 	PrimaryGeneratedColumn,
 } from 'typeorm'
+import { Subject } from './Subject'
+import { Video } from './Video'
 
 @Entity('rooms')
 export class Romm {
@@ -14,6 +16,12 @@ export class Romm {
   @Column({ type: 'text' })
   name: string
 
+  @Column({ type: 'text' })
+  name: string
+
   @OneToMany(() => Video, video => video.room)
   videos: Video[]
+
+  @ManyToMany(() => Subject, subject => subject.rooms)
+	subjects: Subject[]
 }
